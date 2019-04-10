@@ -4,7 +4,7 @@
   </head>
   <body>
     <script>
-      window.alert("Hello World!");
+      document.write("Hello fuckin World");
     </script>
   </body>
 </html>
