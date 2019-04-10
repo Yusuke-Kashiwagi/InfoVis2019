@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Task2</title>
+  </head>
+  <body>
+    <script src = "vec3.js"></script>
+    Triangle 1
+    <input type = "number", id = "0x"/>
+    <input type = "number", id = "0y"/>
+    <input type = "number", id = "0z"/>
+    <br>
+    Triangle 2
+    <input type = "number", id = "1x"/>
+    <input type = "number", id = "1y"/>
+    <input type = "number", id = "1z"/>
+    <br>
+    Triangle 3
+    <input type = "number", id = "2x"/>
+    <input type = "number", id = "2y"/>
+    <input type = "number", id = "2z"/>
+    <br>
+    <input  type = "button"
+            onclick = "Event()"
+            value = "Calculate the area!"/>
+    <script>
+    function Event(){
+      var x0 = document.getElementById("0x").value;
+      var y0 = document.getElementById("0y").value;
+      var z0 = document.getElementById("0z").value;
+
+      var x1 = document.getElementById("1x").value;
+      var y1 = document.getElementById("1y").value;
+      var z1 = document.getElementById("1z").value;
+
+      var x2 = document.getElementById("2x").value;
+      var y2 = document.getElementById("2y").value;
+      var z2 = document.getElementById("2z").value;
+
+      var v0 = new Vec3(x0, y0, z0);
+      var v1 = new Vec3(x1, y1, z1);
+      var v2 = new Vec3(x2, y2, z2);
+
+      var S = AreaOfTriangle(v0, v1, v2);
+      document.write(S);
+      function AreaOfTriangle(a, b, c){
+        a.sub(c);
+        b.sub(c);
+        var A = a.return();
+        var B = b.return();
+        xg = A[1]*B[2] - A[2]*B[1];
+        yg = A[2]*B[0] - A[0]*B[2];
+        zg = A[0]*B[1] - A[1]*B[0];
+        S = Math.sqrt(xg*xg + yg*yg + zg*zg)/2;
+        return S
+      }
+    }
+    </script>
+  </body>
+</html>
