@@ -198,6 +198,6 @@ function makeTriangle(vertices, faces){
 }
 
 function rotation(triangle){
-  triangle.rotation.x += 0.005
-  triangle.rotation.y += 0.01
+  triangle.rotation.x += 0.001
+  triangle.rotation.y += 0.001
 }
