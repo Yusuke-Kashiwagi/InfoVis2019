@@ -2,10 +2,9 @@ function main_gouraud()
 {
     var volume = new KVS.LobsterData();
     var screen = new KVS.THREEScreen();
-    var scene = new THREE.Scene()
 
     screen.init( volume, {
-        width: window.innerWidth,
+        width: window.innerWidth/2,
         height: window.innerHeight,
         enableAutoResize: false
     });
@@ -14,7 +13,7 @@ function main_gouraud()
     screen.scene.add( bounds );
 
     var fov = 45;
-    var aspect = window.innerWidth / window.innerHeight;
+    var aspect = window.innerWidth/2 / window.innerHeight;
     var near = 1;
     var far = 1000;
     var camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
@@ -22,8 +21,8 @@ function main_gouraud()
     screen.scene.add( camera );
 
     var renderer = new THREE.WebGLRenderer();
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    document.body.appendChild( renderer.domElement );   
+    renderer.setSize( window.innerWidth/2, window.innerHeight );
+     target_dom.appendChild( renderer.domElement )   
 
     var light_gouraud = new THREE.PointLight();
     light_gouraud.position.set( 5, 5, 5 );
@@ -38,10 +37,10 @@ function main_gouraud()
     });
 
     window.addEventListener( 'resize', function() {
-        screen.resize( [ window.innerWidth, window.innerHeight ] );
+        screen.resize( [ window.innerWidth/2, window.innerHeight ] );
     });
 
-    renderer.render( scene, camera );
+    renderer.render( screen.scene, camera );
 
     screen.loop();
 }

@@ -1,6 +1,6 @@
 <html>
     <head>
-	<title>W09: Example 02</title>
+	<title>finaltask</title>
     </head>
     <body style="margin:0">
 	<script src="three.min.js"></script>
@@ -88,25 +88,23 @@
 	 }
 	</script>
 	<script src="w09_main_shader.js" id="gouraud.main"></script>
-
-	<form name="formChecker">
-		<input type="radio" name="rbtn" value="gouraud" checked>Gouraud
-		<input type="radio" name="rbtn" value="phong">Phong
-		<input type="button"  value="Generate" onClick="check()">
-	</form>
+	<div style="width:window.innerWidth;">
+	  <div>	    
+	    <div id="display1" style="width:20%; float:left; margin-bottom: 5px;"></div>
+	    <div id="display2" style="width:20%; float:left; margin-bottom: 5px;"></div>
+	  </div>
+	</div>
 	<script>
-		function check(){
-			var rcheck = document.formChecker.rbtn[0].checked
-			if(rcheck){
+
 				var vert_shader = document.getElementById('gouraud.vert').text
 				var frag_shader = document.getElementById('gouraud.frag').text
-				main_gouraud(vert_shader, frag_shader)
-			}else{
+				 var target_dom = document.getElementById('display1');
+				main_gouraud(vert_shader, frag_shader, target_dom)
+
 				var vert_shader = document.getElementById('phong.vert').text
 				var frag_shader = document.getElementById('phong.frag').text
-				main_phong(vert_shader, frag_shader)
-			}
-		}
+				var target_dom = document.getElementById('display1');
+				main_phong(vert_shader, frag_shader, target_dom)
 	</script>
 
     </body>
