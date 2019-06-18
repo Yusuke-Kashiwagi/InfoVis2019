@@ -49,7 +49,7 @@
 		gl_FragColor = vec4( shaded_color, 1.0 );
 	 }
 	</script>
-	<script src="w09_main_phong.js" id="phong.main"></script>
+	<script src="main_phong.js" id="phong.main"></script>
 
 	<script src="Isosurfaces(shader).js"></script>
 	<script type="x-shader/x-vertex" id="gouraud.vert">
@@ -87,11 +87,24 @@
 	     gl_FragColor = vec4( point_color, 1.0 );
 	 }
 	</script>
-	<script src="w09_main_shader.js" id="gouraud.main"></script>
+	<script src="main_gouraud.js" id="gouraud.main"></script>
+	
+
+	<div id="text" style="width:40%; float:left;">
+	<h1>情報可視化論最終課題</h1>
+	<h3>191x205x 柏木裕介</h3>
+	<h2>概要</h2>
+	<p>三次元仮想空間に存在する物体を視覚情報として再現する際、陰影を表現するシェーディングには複数の種類が存在する。今回は、GouraudシェーディングとPhongシェーディングにより描画されたロブスターの3Dモデルを並べ、両者の違いを検討する。
+	ここにおけるGouraudシェーディングとは立体モデルの頂点間で色の補完を行いレンダリングするシェーディング技法であり、Phongシェーディングとは各ピクセルごとに色の補完を行うシェーディング技法である。</p>
+	<h2>可視化結果</h2>
+	<p>横に並んだ二つのロブスターのうち、左がGouraudシェーディング、右がPhongシェーディングで可視化されたロブスターである。ピクセルごとに色補完を行うPhongシェーディングと比較して、頂点間で色補完を行うGouraudシェーディングでは陰影の境界面が少しぼやけたような形で表現されている。</p>
+	<h2>結論</h2>
+	<p>今回、二つのシェーディングで可視化されたモデルを並べ、シェーディングの種類による可視化結果の精密さの違いを検討した。実際はGouraudシェーディングよりPhongシェーディングの方が計算コストが高いため、精密に可視化するか計算コストを下げて近似的な方法で可視化するかは用途によって選択することになる。
+	</div>
 	<div style="width:window.innerWidth;">
 	  <div>	    
-	    <div id="display1" style="width:20%; float:left; margin-bottom: 5px;"></div>
-	    <div id="display2" style="width:20%; float:left; margin-bottom: 5px;"></div>
+	    <div id="display1" style="width:0%; float:left; margin-bottom: 5px;">gouraud</div>
+	    <div id="display2" style="width:0%; float:left; margin-bottom: 5px;">phong</div>
 	  </div>
 	</div>
 	<script>
@@ -103,8 +116,9 @@
 
 				var vert_shader = document.getElementById('phong.vert').text
 				var frag_shader = document.getElementById('phong.frag').text
-				var target_dom = document.getElementById('display1');
+				var target_dom = document.getElementById('display2');
 				main_phong(vert_shader, frag_shader, target_dom)
+
 	</script>
 
     </body>

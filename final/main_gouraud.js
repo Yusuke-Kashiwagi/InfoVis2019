@@ -24,7 +24,7 @@ function main_gouraud()
     renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
      target_dom.appendChild( renderer.domElement )   
 
-    var light_gouraud = new THREE.PointLight(0xFFFFFF, 2, 50, 1.0);
+    var light_gouraud = new THREE.PointLight(0xFFFFFF, 10, 50, 1.0);
     light_gouraud.position.set( 5, 5, 5 );
     screen.scene.add( light_gouraud );
 
